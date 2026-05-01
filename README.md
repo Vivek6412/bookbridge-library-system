@@ -8,7 +8,7 @@ A modern full-stack smart library portal with separate Administrator and Student
 - Account roles: Administrator and Student
 - Secure password hashing with bcrypt
 - Signed HTTP-only session cookies
-- Persistent SQLite database stored in `data/library.sqlite`
+- Persistent database storage with local SQLite and production Postgres support
 - Administrator dashboard for inventory, issue records, and student requests
 - Student dashboard for browsing books and requesting access
 - Request approval workflow similar to an offline library desk
@@ -45,7 +45,8 @@ Students can:
 - Vite
 - Node.js
 - Express
-- sql.js SQLite database
+- sql.js SQLite database for local development
+- Neon Postgres for free hosted production database storage
 - bcryptjs
 
 ## Project Structure
@@ -134,7 +135,44 @@ POST /api/requests/:id/approve
 POST /api/requests/:id/reject
 ```
 
-## Deployment
+## Free Deployment: Vercel + Neon
+
+The best free deployment path for this project is:
+
+- **Vercel Hobby** for hosting the React app and Node API
+- **Neon Free Tier** for hosted Postgres database storage
+
+This avoids the main limitation of free app hosts: they usually do not provide persistent server disks.
+
+### 1. Create a Neon Database
+
+1. Go to `https://neon.tech`
+2. Create a free project.
+3. Copy the database connection string.
+4. It should look similar to:
+
+```text
+postgresql://user:password@host/dbname?sslmode=require
+```
+
+### 2. Deploy on Vercel
+
+1. Go to `https://vercel.com/new`
+2. Import this GitHub repository.
+3. Use the default Vite build settings.
+4. Add these environment variables:
+
+```text
+DATABASE_URL=<your Neon connection string>
+SESSION_SECRET=<a long random secret>
+NODE_ENV=production
+```
+
+5. Deploy the project.
+
+The repository includes `vercel.json`, so Vercel routes `/api/*` to the Express backend and serves the React build from `dist`.
+
+## Alternative Deployment: Render
 
 This project can be deployed as one Node web service because Express serves both the API and the built React app.
 
