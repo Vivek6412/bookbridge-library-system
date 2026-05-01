@@ -1,2 +1,9 @@
 *.class
 *.log
+node_modules/
+dist/
+data/
+.env
+server.pid
+server.log
+server.err
