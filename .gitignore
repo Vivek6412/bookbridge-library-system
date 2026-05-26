@@ -7,3 +7,5 @@ data/
 server.pid
 server.log
 server.err
+
+legacy/
