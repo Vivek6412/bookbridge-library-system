@@ -2,6 +2,8 @@
 
 A modern full-stack smart library portal with separate Administrator and Student workflows.
 
+**🌐 Live Demo: [https://bookbridge-library-system.vercel.app/](https://bookbridge-library-system.vercel.app/)**
+
 ## Features
 
 - Real signup, login, logout, and protected sessions
