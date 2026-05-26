@@ -210,11 +210,12 @@ Manual Render setup:
 5. Use the build and start commands shown above.
 6. Add the persistent disk shown above so database data survives restarts.
 
-## Original Java Version
+## Original Java Version (Legacy)
 
-The original Java CLI and Swing files are still included:
+The original Java CLI and Swing prototypes are preserved in the `legacy/` directory:
 
 ```bash
+cd legacy/java-prototypes
 javac Main.java
 java Main
 
