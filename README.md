@@ -53,13 +53,22 @@ Students can:
 
 ```text
 deknek-library-website/
-  client/src/          React frontend
-  server/              Express backend
-  server/db/           Database helper
+  client/src/
+    components/        Modular UI and feature components
+    pages/             Top-level page views (e.g., AuthPage)
+    services/          API client and shared logic
+    App.jsx            Main application entry and routing
+  server/
+    controllers/       Business logic for API routes
+    routes/            Express route definitions
+    middleware/        Auth and security middleware
+    utils/             Shared helpers and formatters
+    db/                Database helper
+    index.js           Server entry point
+  legacy/
+    java-prototypes/   Original Java CLI and GUI versions
   data/                Local SQLite database, created at runtime
   dist/                Production frontend build
-  Main.java            Original CLI Java version
-  LibraryGUI.java      Original Swing GUI Java version
 ```
 
 ## Run Locally
